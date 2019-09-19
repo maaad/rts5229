@@ -4,9 +4,9 @@ General Information
 Linux driver for Realtek PCI-Express card reader chip.
 
 Linux already has rtsx_pci driver which theoretically should work with
-rtl8411 chip. But in fact it can only detect the chip and nothing more.
+rts5229 card reader. But in fact it can only detect the chip and nothing more.
 
-rts_bpp works fine with rtl8411 card reader and probably some others.
+Module rts5229 works fine with rts5229 card reader and probably some others.
 
 
 Build Steps
