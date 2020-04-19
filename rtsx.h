@@ -83,17 +83,6 @@ static inline unsigned scsi_bufflen(struct scsi_cmnd *cmd)
 	pci_get_domain_bus_and_slot(0, (bus), (devfn))
 #endif
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 0, 0)
-static void do_gettimeofday(struct timeval *tv)
-{
-	struct timespec64 now;
-
-	ktime_get_real_ts64(&now);
-	tv->tv_sec = now.tv_sec;
-	tv->tv_usec = now.tv_nsec / 1000;
-}
-#endif
-
 /*
  * macros for easy use
  */
