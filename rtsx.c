@@ -263,7 +263,7 @@ static struct scsi_host_template rtsx_host_template = {
 	 */
 	
 	// Commented due to it is removed since kernel 5.0
-	// .use_clustering =		1,
+	.use_clustering =		1,
 
 	
 	.emulated =			1,
