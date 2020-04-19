@@ -35,7 +35,8 @@ $(TARGET_MODULE)-objs := rtsx.o rtsx_chip.o rtsx_transport.o rtsx_scsi.o rtsx_ca
 
 module:
 	cp -f ./define.release ./define.h
-	$(MAKE) -C $(MOD_DIR)/build/ SUBDIRS=$(CURDIR) modules
+	#$(MAKE) -C $(MOD_DIR)/build/ SUBDIRS=$(CURDIR) modules
+	make -C $(KERNELDIR) M=$(PWD) modules
 debug:
 	cp -f ./define.debug ./define.h
 	$(MAKE) -C $(MOD_DIR)/build/ SUBDIRS=$(CURDIR) modules
