@@ -33,7 +33,7 @@ obj-m += $(TARGET_MODULE).o
 $(TARGET_MODULE)-objs := rtsx.o rtsx_chip.o rtsx_transport.o rtsx_scsi.o rtsx_card.o \
 			 general.o sd.o ms.o
 
-default:
+module:
 	cp -f ./define.release ./define.h
 	$(MAKE) -C $(MOD_DIR)/build/ SUBDIRS=$(CURDIR) modules
 debug:
