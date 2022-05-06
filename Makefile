@@ -33,14 +33,17 @@ obj-m += $(TARGET_MODULE).o
 $(TARGET_MODULE)-objs := rtsx.o rtsx_chip.o rtsx_transport.o rtsx_scsi.o rtsx_card.o \
 			 general.o sd.o ms.o
 
-module:
+default:
 	cp -f ./define.release ./define.h
-	+make -C $(KERNELDIR) M=$(PWD) modules
+	make -C /lib/modules/$(KVERSION)/build/ SUBDIRS=$(PWD) modules
 debug:
 	cp -f ./define.debug ./define.h
-	$(MAKE) -C $(MOD_DIR)/build/ SUBDIRS=$(CURDIR) modules
+	make -C /lib/modules/$(KVERSION)/build/ SUBDIRS=$(PWD) modules
 install:
-	cp $(TARGET_MODULE).ko $(MOD_DIR)/kernel/drivers/scsi -f
+	mkdir -p /lib/modules/$(KVERSION)/kernel/drivers/scsi
+	cp $(TARGET_MODULE).ko /lib/modules/$(KVERSION)/kernel/drivers/scsi -f
 clean:
 	rm -f *.o *.ko
 	rm -f $(TARGET_MODULE).mod.c
+
+
